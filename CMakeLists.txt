@@ -6,7 +6,8 @@ cmake_minimum_required(VERSION 2.8)
 project(naoqi_libqi)
 find_package(catkin)
 
-catkin_package(INCLUDE_DIRS qi/detail qi compat
+catkin_package(CFG_EXTRAS libqi-extras.cmake
+   INCLUDE_DIRS ./
    LIBRARIES qi
 )
 
