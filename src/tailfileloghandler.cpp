@@ -7,41 +7,7 @@
 #include <qi/log/tailfileloghandler.hpp>
 
 #include <boost/function.hpp>
-
-/*
- * Boost introduced c++11 scoped_enum feature in 1.48 (at most).
- * A fake one was added in case of compilation without c++11.
- * When including boost/filesystem.hpp, if c++11 is activated, scoped_enum
- * are used, but can only work if boost was also compiled with c++11.
- * On the other hand, if c++11 is not activated, fake scoped_enum are used,
- * but can only work if boost was compiled without c++11.
- * This issue was reported in
- * https://svn.boost.org/trac/boost/ticket/6124
- * https://svn.boost.org/trac/boost/ticket/6779
- * https://svn.boost.org/trac/boost/ticket/10038
- * and fixed in boost 1.57
- *
- * libqi-2.5 is now compiled with C++11 activated. Because of this,
- * boost/filesystem.hpp will add C++11 API, even if boost is not compiled
- * with C++11, leading to a linkage error.
- *
- * Therefore we need to specifically ask for non-c++11 API, but only for
- * boost versions lower than 1.57 (as the bug is solved in later versions.
- *
- */
-
-#if BOOST_VERSION < 105700
-#  ifndef BOOST_NO_CXX11_SCOPED_ENUMS
-#    define BOOST_NO_CXX11_SCOPED_ENUMS
-#    define REMOVE_BOOST_NO_CXX11_SCOPED_ENUMS
-#  endif
-#endif
 #include <boost/filesystem.hpp>
-#if defined(BOOST_NO_CXX11_SCOPED_ENUMS) && defined(REMOVE_BOOST_NO_CXX11_SCOPED_ENUMS)
-#  undef BOOST_NO_CXX11_SCOPED_ENUMS
-#  undef REMOVE_BOOST_NO_CXX11_SCOPED_ENUMS
-#endif
-
 #include <boost/bind.hpp>
 
 #include <iomanip>

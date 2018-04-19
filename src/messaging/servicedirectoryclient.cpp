@@ -2,8 +2,6 @@
 **  Copyright (C) 2012 Aldebaran Robotics
 **  See COPYING for the license
 */
-
-#include <boost/version.hpp>
 #include "servicedirectoryclient.hpp"
 #include <qi/type/objecttypebuilder.hpp>
 #include "servicedirectory_p.hpp"
@@ -108,12 +106,7 @@ namespace qi {
       return;
     }
 
-#if BOOST_VERSION < 105800
     const Message& msg = boost::get<const Message&>(data);
-#else
-    const Message& msg = boost::relaxed_get<const Message&>(data);
-#endif
-
     unsigned int function = msg.function();
     bool failure = msg.type() == Message::Type_Error
         || msg.service() != Message::Service_Server

@@ -216,7 +216,7 @@ public:
   // We use None to disable it. The method must be instantiable because when we
   // export the class under windows, all functions are instanciated
   // Future cast operator
-  typedef typename boost::mpl::if_<typename std::is_same<T, Empty>::type, None, Object<Empty> >::type MaybeAnyObject;
+  typedef typename boost::mpl::if_<typename boost::is_same<T, Empty>::type, None, Object<Empty> >::type MaybeAnyObject;
   Object(const qi::Future<MaybeAnyObject>& fobj);
   Object(const qi::FutureSync<MaybeAnyObject>& fobj);
 
@@ -404,7 +404,7 @@ namespace detail
 
 template<typename T> template<typename U> Object<T>::Object(boost::shared_ptr<U> other)
 { // bounce depending on T==Empty
-  _obj = detail::fromSharedPtr(*this, other, typename std::is_same<T, Empty>::type());
+  _obj = detail::fromSharedPtr(*this, other, typename boost::is_same<T, Empty>::type());
 }
 
 template<typename T> inline Object<T>::Object(T* ptr)
@@ -445,7 +445,7 @@ template<typename T> inline boost::shared_ptr<T> Object<T>::asSharedPtr()
 template<typename T> inline void Object<T>::init(detail::ManagedObjectPtr obj)
 {
   _obj = obj;
-  if (!std::is_same<T, Empty>::value && obj)
+  if (!boost::is_same<T, Empty>::value && obj)
     checkT();
   _obj = obj;
 }
@@ -465,7 +465,7 @@ template<typename T> Object<T>::operator Object<Empty>() const { return Object<E
 /// Check tha value actually has the T interface
 template<typename T> void Object<T>::checkT()
 {
-  if (std::is_same<T, Empty>::value || !_obj)
+  if (boost::is_same<T, Empty>::value || !_obj)
     return;
 
   const auto isMatchingType = [&] {
