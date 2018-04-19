@@ -1,4 +1,4 @@
-From a0a3339df5a9a0af6656c6dfa98a49af29c58913 Mon Sep 17 00:00:00 2001
+From 949f9e3f989e56adca36f8ac1d522374c8158181 Mon Sep 17 00:00:00 2001
 From: Vincent Rabaud <vincent.rabaud@gmail.com>
 Date: Sun, 13 Mar 2016 18:05:53 +0100
 Subject: [PATCH 3/7] add C++11 flags to whoever uses that lib
@@ -8,7 +8,7 @@ Subject: [PATCH 3/7] add C++11 flags to whoever uses that lib
  1 file changed, 3 insertions(+)
 
 diff --git a/cmake/libqi-extras.cmake.em b/cmake/libqi-extras.cmake.em
-index a720060..894d2ed 100644
+index a720060f..894d2edb 100644
 --- a/cmake/libqi-extras.cmake.em
 +++ b/cmake/libqi-extras.cmake.em
 @@ -1,3 +1,6 @@
@@ -19,5 +19,5 @@ index a720060..894d2ed 100644
 +  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 +endif()
 -- 
-2.7.4
+2.17.0
 

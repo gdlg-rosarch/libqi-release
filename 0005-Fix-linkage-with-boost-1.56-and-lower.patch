@@ -1,4 +1,4 @@
-From 6ae6fc8beb128cc9795ec02b2c7929e4966d092e Mon Sep 17 00:00:00 2001
+From 3cf70bb8ca5477c331eeb03139c8e5dd8cfce5fc Mon Sep 17 00:00:00 2001
 From: Surya Ambrose <surya.ambrose@gmail.com>
 Date: Sat, 19 Mar 2016 16:30:01 +0100
 Subject: [PATCH 5/7] Fix linkage with boost 1.56 and lower
@@ -9,7 +9,7 @@ This is required for debian Jessie (using boost 1.55)
  1 file changed, 34 insertions(+)
 
 diff --git a/src/tailfileloghandler.cpp b/src/tailfileloghandler.cpp
-index 0d6d9e5..98dc7f7 100644
+index 0d6d9e55..98dc7f74 100644
 --- a/src/tailfileloghandler.cpp
 +++ b/src/tailfileloghandler.cpp
 @@ -7,7 +7,41 @@
@@ -55,5 +55,5 @@ index 0d6d9e5..98dc7f7 100644
  
  #include <iomanip>
 -- 
-2.7.4
+2.17.0
 

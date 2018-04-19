@@ -1,4 +1,4 @@
-From e6915380a56a5b16287e642f0129790d8dbab620 Mon Sep 17 00:00:00 2001
+From e1e649eae89d396e4bffdda933a7c8bfa05d8cc5 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?S=C3=A9verin=20Lemaignan?=
  <severin.lemaignan@plymouth.ac.uk>
 Date: Tue, 3 May 2016 14:49:00 +0100
@@ -23,7 +23,7 @@ Closes #14
  6 files changed, 19 insertions(+), 7 deletions(-)
 
 diff --git a/qi/detail/futurebarrier.hpp b/qi/detail/futurebarrier.hpp
-index 1e32ee6..8f59d7c 100644
+index 1e32ee6d..8f59d7c3 100644
 --- a/qi/detail/futurebarrier.hpp
 +++ b/qi/detail/futurebarrier.hpp
 @@ -191,7 +191,7 @@ public:
@@ -36,7 +36,7 @@ index 1e32ee6..8f59d7c 100644
    }
  
 diff --git a/src/eventloop.cpp b/src/eventloop.cpp
-index 12aa7d2..f8dde0d 100644
+index 12aa7d2d..f8dde0d5 100644
 --- a/src/eventloop.cpp
 +++ b/src/eventloop.cpp
 @@ -349,7 +349,7 @@ namespace qi {
@@ -67,7 +67,7 @@ index 12aa7d2..f8dde0d 100644
      ctx->ending = false;
      monitor_ping(ctx);
 diff --git a/src/messaging/objectregistrar.cpp b/src/messaging/objectregistrar.cpp
-index b5dfe51..52004e2 100644
+index b5dfe519..52004e28 100644
 --- a/src/messaging/objectregistrar.cpp
 +++ b/src/messaging/objectregistrar.cpp
 @@ -158,7 +158,7 @@ namespace qi {
@@ -80,7 +80,7 @@ index b5dfe51..52004e2 100644
      return prom.future();
    };
 diff --git a/src/messaging/remoteobject.cpp b/src/messaging/remoteobject.cpp
-index 276702e..cd987a2 100644
+index 276702ef..cd987a25 100644
 --- a/src/messaging/remoteobject.cpp
 +++ b/src/messaging/remoteobject.cpp
 @@ -97,7 +97,7 @@ namespace qi {
@@ -102,7 +102,7 @@ index 276702e..cd987a2 100644
    }
  
 diff --git a/src/messaging/servicedirectoryclient.cpp b/src/messaging/servicedirectoryclient.cpp
-index f5cfef3..27aeb30 100644
+index f5cfef3c..27aeb30f 100644
 --- a/src/messaging/servicedirectoryclient.cpp
 +++ b/src/messaging/servicedirectoryclient.cpp
 @@ -2,6 +2,8 @@
@@ -128,7 +128,7 @@ index f5cfef3..27aeb30 100644
      bool failure = msg.type() == Message::Type_Error
          || msg.service() != Message::Service_Server
 diff --git a/src/messaging/sessionservice.cpp b/src/messaging/sessionservice.cpp
-index bc23227..60d691f 100644
+index bc232272..60d691f0 100644
 --- a/src/messaging/sessionservice.cpp
 +++ b/src/messaging/sessionservice.cpp
 @@ -9,6 +9,7 @@
@@ -152,5 +152,5 @@ index bc23227..60d691f 100644
      bool failure = msg.type() == Message::Type_Error
          || msg.service() != Message::Service_Server
 -- 
-2.7.4
+2.17.0
 
